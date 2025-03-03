@@ -1,131 +1,155 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
+  Alert,
+  Image,
+  Linking,
+  PermissionsAndroid,
+  TouchableOpacity,
 } from 'react-native';
+import {Pagination} from 'react-native-reanimated-carousel';
+import {Text, View} from 'rn-uikit-ikong';
+import {Introduction} from 'rn-uikit-ikong';
+// import {Introduction} from './src /components/Introduction/Introduction';
+import {check, PERMISSIONS, request, RESULTS} from 'react-native-permissions';
+import {GrantPermissions} from './src/components/GrantPermissions/GrantPermissions';
+type Props = {};
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+const App = (props: Props) => {
+  const permissionMapping: Record<string, any> = {
+    [PermissionsAndroid.PERMISSIONS.CAMERA]: PERMISSIONS.ANDROID.CAMERA,
+    [PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE]:
+      PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE,
+    [PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE]:
+      PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE,
+    [PermissionsAndroid.PERMISSIONS.RECORD_AUDIO]:
+      PERMISSIONS.ANDROID.RECORD_AUDIO,
+    'ios.permission.camera': PERMISSIONS.IOS.CAMERA,
+    'ios.permission.photos': PERMISSIONS.IOS.PHOTO_LIBRARY,
+    'ios.permission.microphone': PERMISSIONS.IOS.MICROPHONE,
   };
 
-  /*
-   * To keep the template simple and small we're adding padding to prevent view
-   * from rendering under the System UI.
-   * For bigger apps the reccomendation is to use `react-native-safe-area-context`:
-   * https://github.com/AppAndFlow/react-native-safe-area-context
-   *
-   * You can read more about it here:
-   * https://github.com/react-native-community/discussions-and-proposals/discussions/827
-   */
-  const safePadding = '5%';
+  const customPermissionHandler = async (
+    permission: string,
+  ): Promise<boolean> => {
+    try {
+      const mappedPermission = permissionMapping[permission];
 
+      if (!mappedPermission) {
+        return false;
+      }
+
+      // Kiểm tra trạng thái quyền hiện tại
+      const status = await check(mappedPermission);
+
+      switch (status) {
+        case RESULTS.GRANTED:
+          return true;
+
+        case RESULTS.DENIED:
+          // Người dùng chưa quyết định hoặc vừa từ chối, hỏi lại
+          const requestResult = await request(mappedPermission);
+          return requestResult === RESULTS.GRANTED;
+
+        case RESULTS.BLOCKED:
+          // Người dùng đã từ chối vĩnh viễn, cần hướng dẫn mở cài đặt
+          Alert.alert(
+            'Quyền bị từ chối',
+            'Bạn cần bật quyền này trong cài đặt ứng dụng để sử dụng tính năng này.',
+            [
+              {
+                text: 'Hủy',
+                style: 'cancel',
+              },
+              {
+                text: 'Mở cài đặt',
+                onPress: () => Linking.openSettings(),
+              },
+            ],
+          );
+          return false;
+
+        default:
+          return false;
+      }
+    } catch (error) {
+      console.error('Permission handling error:', error);
+      return false;
+    }
+  };
   return (
-    <View style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+    <View style={{flex: 1}}>
+      <Introduction
+        defaultStep3={{
+          image: 'https://p',
+          title: 'test 03',
+          adsComponent: <View flex1 bgColor={'red'} />,
+          titleNextStep: 'Continue',
+          descNextStep: 'Grant permission later',
+        }}
+        defaultStep2={{
+          image: 'https://p',
+          title: 'test 02',
+          titleNextStep: 'Continue',
+        }}
+        isPermission={false}
+        screenStep1={
+          <View flex1 bgColor={'blue'}>
+            <Image
+              src={'https://picsum.photos/200/300?random=3'}
+              style={{flex: 1}}
+              resizeMode="cover"
+            />
+          </View>
+        }
+        loop={false}
+        onEnd={() => Alert.alert('End')}
+        permissionHandler={customPermissionHandler}
+        permissions={[
+          {
+            key: 'camera',
+            label: 'Camera',
+            androidPermission: PermissionsAndroid.PERMISSIONS.CAMERA,
+            iosPermission: 'ios.permission.camera',
+          },
+        ]}
       />
-      <ScrollView
-        style={backgroundStyle}>
-        <View style={{paddingRight: safePadding}}>
-          <Header/>
-        </View>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            paddingHorizontal: safePadding,
-            paddingBottom: safePadding,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+      {/* <GrantPermissions
+        onCancel={() => {
+          Alert.alert('done', 'done');
+        }}
+        isPermission={false}
+        screenStep1={<View flex1 bgColor={'red'} />}
+        defaultStep3={{
+          image: 'https://p',
+          title: 'ádasdasdas',
+          adsComponent: <View flex1 bgColor={'red'} />,
+          titleNextStep: 'Continue',
+        }}
+        defaultStep2={{
+          image: 'https://p',
+          title: 'ádasdasdas',
+          titleNextStep: 'Continue',
+        }}
+        permissions={[
+          {
+            key: 'camera',
+            label: 'Camera',
+            androidPermission: PermissionsAndroid.PERMISSIONS.CAMERA,
+            iosPermission: 'ios.permission.camera',
+          },
+        ]}
+        permissionHandler={customPermissionHandler}
+        onComplete={grantedPermissions => {
+          Alert.alert(
+            'Granted permissions',
+            JSON.stringify(grantedPermissions),
+          );
+          // props?.onEnd;
+          console.log('Granted permissions:', grantedPermissions);
+        }}
+      /> */}
     </View>
   );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+};
 
 export default App;
