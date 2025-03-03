@@ -1730,7 +1730,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RnUikitIkong (0.1.2):
+  - RnUikitIkong (0.1.6):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2054,10 +2054,10 @@ SPEC CHECKSUMS:
   RNGestureHandler: 8b1080a6db0be82dbca18550d6212b885bfab6b2
   RNPermissions: 73f6b190d9bfd39a82f97b7b55813aab315f0204
   RNReanimated: cf6008a0102a21a275d90bacafc4f433c2efa926
-  RnUikitIkong: 9f8a40d5ef68976f90df6e64ed32c041511b0bdd
+  RnUikitIkong: 105ec280b1d3590e1e83fe09a74e5f973b3459b6
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: afd04ff05ebe0121a00c468a8a3c8080221cb14c
 
-PODFILE CHECKSUM: dc7325a28af915997f2bba7967c4510342eaa206
+PODFILE CHECKSUM: 76d2b72427b451f7f0a5bec63144cee43d5b81d8
 
 COCOAPODS: 1.16.2
