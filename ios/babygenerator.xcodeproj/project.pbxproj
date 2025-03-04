@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		2E80D7BE560AE749C4A2D0AA /* libPods-babygenerator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF25C37135EEAAE5A89CAD1E /* libPods-babygenerator.a */; };
+		495C9B7AD80BB997B09A67E6 /* libPods-babygenerator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4E5278C207EC65A3BA6B92 /* libPods-babygenerator.a */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		FABDE943BD580464CDF8CB16 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
@@ -19,11 +19,11 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = babygenerator/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = babygenerator/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = babygenerator/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		27EA8A07ADCA7A38241AC612 /* Pods-babygenerator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-babygenerator.debug.xcconfig"; path = "Target Support Files/Pods-babygenerator/Pods-babygenerator.debug.xcconfig"; sourceTree = "<group>"; };
-		6B9E4C7F3D3D0B21D094D375 /* Pods-babygenerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-babygenerator.release.xcconfig"; path = "Target Support Files/Pods-babygenerator/Pods-babygenerator.release.xcconfig"; sourceTree = "<group>"; };
+		2F4E5278C207EC65A3BA6B92 /* libPods-babygenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-babygenerator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = babygenerator/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = babygenerator/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CF25C37135EEAAE5A89CAD1E /* libPods-babygenerator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-babygenerator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFD7B733F5A021139AA4B954 /* Pods-babygenerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-babygenerator.release.xcconfig"; path = "Target Support Files/Pods-babygenerator/Pods-babygenerator.release.xcconfig"; sourceTree = "<group>"; };
+		E259A65B82E67426B36310A0 /* Pods-babygenerator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-babygenerator.debug.xcconfig"; path = "Target Support Files/Pods-babygenerator/Pods-babygenerator.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -32,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E80D7BE560AE749C4A2D0AA /* libPods-babygenerator.a in Frameworks */,
+				495C9B7AD80BB997B09A67E6 /* libPods-babygenerator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				CF25C37135EEAAE5A89CAD1E /* libPods-babygenerator.a */,
+				2F4E5278C207EC65A3BA6B92 /* libPods-babygenerator.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -92,8 +92,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				27EA8A07ADCA7A38241AC612 /* Pods-babygenerator.debug.xcconfig */,
-				6B9E4C7F3D3D0B21D094D375 /* Pods-babygenerator.release.xcconfig */,
+				E259A65B82E67426B36310A0 /* Pods-babygenerator.debug.xcconfig */,
+				CFD7B733F5A021139AA4B954 /* Pods-babygenerator.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -105,13 +105,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "babygenerator" */;
 			buildPhases = (
-				1C499E4BF99947B442AE7FE6 /* [CP] Check Pods Manifest.lock */,
+				0C7F22A3DDA998661C1BABB6 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				57A4279BAC9BFA6FD35243DC /* [CP] Embed Pods Frameworks */,
-				F55FE9D49A86F88F9CF036E6 /* [CP] Copy Pods Resources */,
+				21D70ED2C4D8C6B93F234D83 /* [CP] Embed Pods Frameworks */,
+				E3A69E924856D7F7AE2306E8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,7 +183,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		1C499E4BF99947B442AE7FE6 /* [CP] Check Pods Manifest.lock */ = {
+		0C7F22A3DDA998661C1BABB6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -205,7 +205,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		57A4279BAC9BFA6FD35243DC /* [CP] Embed Pods Frameworks */ = {
+		21D70ED2C4D8C6B93F234D83 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -222,7 +222,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-babygenerator/Pods-babygenerator-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F55FE9D49A86F88F9CF036E6 /* [CP] Copy Pods Resources */ = {
+		E3A69E924856D7F7AE2306E8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,7 +255,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 27EA8A07ADCA7A38241AC612 /* Pods-babygenerator.debug.xcconfig */;
+			baseConfigurationReference = E259A65B82E67426B36310A0 /* Pods-babygenerator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -284,7 +284,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B9E4C7F3D3D0B21D094D375 /* Pods-babygenerator.release.xcconfig */;
+			baseConfigurationReference = CFD7B733F5A021139AA4B954 /* Pods-babygenerator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

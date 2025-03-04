@@ -11,9 +11,8 @@ def node_require(script)
 # Use it to require both react-native's and this package's scripts:
  node_require('react-native/scripts/react_native_pods.rb')
  node_require('react-native-permissions/scripts/setup.rb')
+ require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 platform :ios, min_ios_version_supported
-prepare_react_native_project!
-
 prepare_react_native_project!
 
 setup_permissions([
