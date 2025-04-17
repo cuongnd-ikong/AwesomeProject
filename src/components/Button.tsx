@@ -6,7 +6,7 @@ type Props = {
   title?: string;
   classButtom?: string;
   classText?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export const Button = ({

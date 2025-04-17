@@ -90,7 +90,6 @@ export const BottomTabComponent = (
   } = props;
 
   const ref = useRef({height: 0}).current;
-  console.log(routes?.length);
   return (
     <View
       className="w-10 h-10 bg-blue-500"
